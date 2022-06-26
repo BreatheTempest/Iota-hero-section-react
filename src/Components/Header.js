@@ -25,7 +25,11 @@ export default function Hero() {
 						<div className="link">Connect</div>
 					</li>
 				</ul>
+				<div className="hamburger">
+					<img src={hamburger} alt="" />
+				</div>
 			</div>
+
 			<div className="apps">
 				Explore IOTA
 				<img src={apps} alt="" />
