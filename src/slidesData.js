@@ -11,11 +11,13 @@ const dataSlider = [
 		text: 'IOTA protects the integrity and verifiability of data',
 	},
 	{
+		id: uuidv4(),
 		video: machineVide,
 		title: 'Connecting Machines',
 		text: 'IOTA connects IoT with secure data and value exchange',
 	},
 	{
+		id: uuidv4(),
 		video: womanVideo,
 		title: 'Empowering People',
 		text: 'IOTA helps people securely navigate their digital life',

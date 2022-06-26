@@ -56,30 +56,30 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	gap: 24px;
 }
 
 .nav > li {
-	padding: 24px;
+	padding: 24px 0;
 	font-weight: 700;
 	cursor: pointer;
-	transition: inset 0.3s;
-}
-
-.nav .link {
 	position: relative;
-	transition: inset 0.3s;
+	transition: right 0.3s, inset 0.3s;
 }
 
-.nav .link::after {
+.nav li::after {
 	content: '';
 	position: absolute;
 	background-color: #0fc1b7;
 	right: 100%;
-	transition: inset 0.3s;
+	left: 0;
+	bottom: 15px;
+	height: 4px;
+	transition: right 0.3s, left 0.3s;
 }
 
-li:hover .link::after {
-	inset: 20px 0 -6px 0;
+li:hover::after {
+	right: 0;
 }
 
 .apps {
@@ -189,16 +189,16 @@ li:hover .link::after {
 
 .title-animation {
 	animation-name: blur-animation;
-	animation-delay: 1s;
+	animation-delay: 0.5s;
 	animation-fill-mode: forwards;
 }
 
 .circle-animation {
-	animation: circle-animation 2s ease-out 3s forwards;
+	animation: circle-animation 2s ease-out 2s forwards;
 }
 
 .text-animation {
-	animation: text-slide-animation 1s ease-out 2s forwards;
+	animation: text-slide-animation 1s ease-out 1.5s forwards;
 }
 
 @keyframes blur-animation {
@@ -241,11 +241,11 @@ li:hover .link::after {
 }
 
 .active {
-	animation: slide-animation-in 1.5s ease-out forwards;
+	animation: slide-animation-in 1s ease-in-out forwards 0.5s;
 }
 
 .fade-out {
-	animation: slide-animation-out 1s ease-in forwards;
+	animation: slide-animation-out 1s ease-out forwards;
 }
 
 @keyframes slide-animation-in {

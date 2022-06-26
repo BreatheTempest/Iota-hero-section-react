@@ -10,7 +10,7 @@ export default function Hero() {
 	const [timeoutId, setTimeoutId] = useState();
 
 	function changeSlide({ target }) {
-		if (target.innerText === 'Next') {
+		if (target.id === 'next') {
 			clearTimeout(timeoutId);
 			setTimeoutId(null);
 			setSlideIdx((prevSlideIdx) =>
@@ -27,7 +27,6 @@ export default function Hero() {
 
 	useEffect(() => {
 		if (!timeoutId) {
-			console.log('start');
 			setTimeoutId(
 				setTimeout(() => {
 					setSlideIdx((prevSlideIdx) =>
@@ -35,7 +34,7 @@ export default function Hero() {
 					);
 					clearTimeout(timeoutId);
 					setTimeoutId(null);
-				}, 7500)
+				}, 7000)
 			);
 		}
 	}, [timeoutId]);
@@ -64,7 +63,7 @@ export default function Hero() {
 			<button onClick={(e) => changeSlide(e)}>
 				{' '}
 				<img src={circle} alt="" />
-				<img className="chevron" src={chevronRight} alt="" />
+				<img className="chevron" src={chevronRight} alt="" id="next" />
 			</button>
 		</section>
 	);

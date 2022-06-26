@@ -1,3 +1,4 @@
+import { useRef, useEffect } from 'react';
 export default function AnimatedVideo({
 	title,
 	text,
@@ -7,6 +8,15 @@ export default function AnimatedVideo({
 }) {
 	const isActive = activeSlide === index + 1;
 
+	const videoRef = useRef();
+
+	useEffect(() => {
+		if (isActive) {
+			videoRef.current.load();
+			videoRef.current.play();
+		}
+	}, [isActive]);
+
 	const firstHalf = title
 		.split(' ')[0]
 		.split('')
@@ -14,6 +24,7 @@ export default function AnimatedVideo({
 			const duration = Math.random() + 1;
 			return (
 				<span
+					key={duration}
 					className={isActive ? 'title-animation' : ''}
 					style={{ animationDuration: duration + 's' }}
 				>
@@ -28,6 +39,7 @@ export default function AnimatedVideo({
 			const duration = Math.random() + 1;
 			return (
 				<span
+					key={duration}
 					className={isActive ? 'title-animation' : ''}
 					style={{ animationDuration: duration + 's' }}
 				>
@@ -38,7 +50,14 @@ export default function AnimatedVideo({
 
 	return (
 		<div className={`slide ${isActive ? 'active' : 'fade-out'}`}>
-			<video muted loop src={video} type="video/webm" autoPlay></video>
+			<video
+				muted
+				src={video}
+				playsInline
+				preload="metadata"
+				type="video/webm"
+				ref={videoRef}
+			></video>
 			<div className="line"></div>
 			<div className="slide-content">
 				<div className="title ">
@@ -50,7 +69,7 @@ export default function AnimatedVideo({
 						></div>
 					</strong>
 				</div>
-				<p className={`slide-text ${isActive ? 'text-animation' : ''}`}>
+				<p className={`slide-text ${isActive ? 'text-animation' : 'fade-out'}`}>
 					{text}
 				</p>
 			</div>
