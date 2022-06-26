@@ -1,6 +1,7 @@
-import React from 'react';
+import circle from '../Images/circle.svg';
+import chevronRight from '../Images/chevron-right.svg';
+import chevronLeft from '../Images/chevron-left.svg';
 import slidesData from '../slidesData';
-
 import Slide from './Slide';
 import { useState, useEffect } from 'react';
 
@@ -41,7 +42,11 @@ export default function Hero() {
 
 	return (
 		<section className="hero">
-			<button onClick={(e) => changeSlide(e)}>Previous</button>
+			<button onClick={(e) => changeSlide(e)}>
+				{' '}
+				<img src={circle} alt="" />
+				<img className="chevron" src={chevronLeft} alt="" />
+			</button>
 			<div className="line"></div>
 			<div className="sliders-container">
 				{slidesData.map((slide, index) => {
@@ -57,7 +62,11 @@ export default function Hero() {
 					);
 				})}
 			</div>
-			<button onClick={(e) => changeSlide(e)}>Next</button>
+			<button onClick={(e) => changeSlide(e)}>
+				{' '}
+				<img src={circle} alt="" />
+				<img className="chevron" src={chevronRight} alt="" />
+			</button>
 		</section>
 	);
 }
