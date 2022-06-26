@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Iota-hero-section-react/static/css/main.07ada006.css",
-    "main.js": "/Iota-hero-section-react/static/js/main.b9632d0a.js",
+    "main.css": "/Iota-hero-section-react/static/css/main.0483eed5.css",
+    "main.js": "/Iota-hero-section-react/static/js/main.57ebe463.js",
     "static/media/machine.webm": "/Iota-hero-section-react/static/media/machine.d4f034da3976265fbe10.webm",
     "static/media/earth.webm": "/Iota-hero-section-react/static/media/earth.fd1eedbb953993aaf1a1.webm",
     "static/media/woman.webm": "/Iota-hero-section-react/static/media/woman.9173ad4b531c49c70376.webm",
@@ -13,11 +13,11 @@
     "static/media/circle.svg": "/Iota-hero-section-react/static/media/circle.7d08f1146e9a758f32a58c5e8387c47b.svg",
     "static/media/chevron-right.svg": "/Iota-hero-section-react/static/media/chevron-right.2dafd4e7afb63a0980d8b17e9bb5fa47.svg",
     "static/media/chevron-left.svg": "/Iota-hero-section-react/static/media/chevron-left.c1d3d038c89b745d04191e2151f9b345.svg",
-    "main.07ada006.css.map": "/Iota-hero-section-react/static/css/main.07ada006.css.map",
-    "main.b9632d0a.js.map": "/Iota-hero-section-react/static/js/main.b9632d0a.js.map"
+    "main.0483eed5.css.map": "/Iota-hero-section-react/static/css/main.0483eed5.css.map",
+    "main.57ebe463.js.map": "/Iota-hero-section-react/static/js/main.57ebe463.js.map"
   },
   "entrypoints": [
-    "static/css/main.07ada006.css",
-    "static/js/main.b9632d0a.js"
+    "static/css/main.0483eed5.css",
+    "static/js/main.57ebe463.js"
   ]
 }
