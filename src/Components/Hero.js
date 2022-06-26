@@ -35,7 +35,7 @@ export default function Hero() {
 					);
 					clearTimeout(timeoutId);
 					setTimeoutId(null);
-				}, 7000)
+				}, 7500)
 			);
 		}
 	}, [timeoutId]);
@@ -47,7 +47,6 @@ export default function Hero() {
 				<img src={circle} alt="" />
 				<img className="chevron" src={chevronLeft} alt="" />
 			</button>
-			<div className="line"></div>
 			<div className="sliders-container">
 				{slidesData.map((slide, index) => {
 					return (

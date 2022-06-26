@@ -39,14 +39,21 @@ export default function AnimatedVideo({
 	return (
 		<div className={`slide ${isActive ? 'active' : 'fade-out'}`}>
 			<video muted loop src={video} type="video/webm" autoPlay></video>
-			<div className="title ">
-				{firstHalf}
-				<strong>
-					{secondHalf}
-					<div className={`circle ${isActive ? 'circle-animation' : ''}`}></div>
-				</strong>
+			<div className="line"></div>
+			<div className="slide-content">
+				<div className="title ">
+					{firstHalf}
+					<strong>
+						{secondHalf}
+						<div
+							className={`circle ${isActive ? 'circle-animation' : ''}`}
+						></div>
+					</strong>
+				</div>
+				<p className={`slide-text ${isActive ? 'text-animation' : ''}`}>
+					{text}
+				</p>
 			</div>
-			<p className={`slide-text ${isActive ? 'text-animation' : ''}`}>{text}</p>
 		</div>
 	);
 }
