@@ -12,7 +12,7 @@ ul {
 
 body {
 	font-family: Inter;
-	/* background-color: #1f253d; */
+	background-color: #1f253d;
 	color: #dadde4;
 	height: 100vh;
 	overflow: hidden;
@@ -104,6 +104,7 @@ li:hover .link::after {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	gap: 800px;
 }
 
 .line {
@@ -130,6 +131,7 @@ li:hover .link::after {
 
 .title span {
 	font-family: 'Metropolis', sans-serif;
+	filter: blur(400px);
 }
 
 .title strong {
@@ -143,6 +145,8 @@ li:hover .link::after {
 	font-size: 18px;
 	width: 315px;
 	position: relative;
+	opacity: 0;
+	transform: translate(100px);
 }
 
 .slide-text::after {
@@ -162,35 +166,30 @@ li:hover .link::after {
 	aspect-ratio: 1;
 	border-radius: 50%;
 	background: rgba(0, 224, 202, 0.15);
+	opacity: 0;
 }
 
 .title-animation {
 	animation-name: blur-animation;
+	animation-delay: 1s;
+	animation-fill-mode: forwards;
 }
 
 .circle-animation {
-	animation: circle-animation 5s ease-out;
+	animation: circle-animation 2s ease-out 3s forwards;
 }
 
 .text-animation {
-	animation: text-slide-animation 2s ease-out;
+	animation: text-slide-animation 2s ease-out 1s forwards;
 }
-@keyframes blur-animation {
-	from {
-		filter: blur(400px);
-	}
 
+@keyframes blur-animation {
 	to {
 		filter: blur(0px);
 	}
 }
 
 @keyframes text-slide-animation {
-	from {
-		transform: translate(15vw);
-		opacity: 0;
-	}
-
 	to {
 		opacity: 1;
 		transform: translate(0);
@@ -198,14 +197,11 @@ li:hover .link::after {
 }
 
 @keyframes circle-animation {
-	from {
-		opacity: 0;
-	}
-
 	to {
 		opacity: 1;
 	}
 }
+
 .sliders-container {
 	position: absolute;
 	overflow: hidden;
@@ -223,23 +219,31 @@ li:hover .link::after {
 	align-items: center;
 	justify-content: center;
 	opacity: 0;
-	transform: translateX(10vw);
-	transition: opacity ease-in-out 0.4s, transform ease-in-out 0.4s;
+	transform: translateX(50px);
 }
 
 .active {
-	animation: slide-animation 2s ease-out;
-	opacity: 1;
+	animation: slide-animation-in 1s ease-out forwards;
 }
 
-@keyframes slide-animation {
-	from {
-		transform: translate(15vw);
-		opacity: 0;
-	}
+.fade-out {
+	animation: slide-animation-out 1s ease-in forwards;
+}
 
+@keyframes slide-animation-in {
 	to {
 		opacity: 1;
 		transform: translate(0);
+	}
+}
+
+@keyframes slide-animation-out {
+	from {
+		opacity: 1;
+		transform: translate(0);
+	}
+	to {
+		opacity: 0;
+		transform: translate(-50px);
 	}
 }

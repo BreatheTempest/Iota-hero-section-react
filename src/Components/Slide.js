@@ -14,7 +14,7 @@ export default function AnimatedVideo({
 			const duration = Math.random() + 1;
 			return (
 				<span
-					className={isActive ? 'title-animation' : 0}
+					className={isActive ? 'title-animation' : ''}
 					style={{ animationDuration: duration + 's' }}
 				>
 					{letter}
@@ -28,7 +28,7 @@ export default function AnimatedVideo({
 			const duration = Math.random() + 1;
 			return (
 				<span
-					className={isActive ? 'title-animation' : 0}
+					className={isActive ? 'title-animation' : ''}
 					style={{ animationDuration: duration + 's' }}
 				>
 					{letter}
@@ -37,8 +37,8 @@ export default function AnimatedVideo({
 		});
 
 	return (
-		<div className={`slide ${isActive ? 'active' : ''}`}>
-			<video autoPlay muted loop src={video} type="video/webm"></video>
+		<div className={`slide ${isActive ? 'active' : 'fade-out'}`}>
+			<video muted loop src={video} type="video/webm" autoPlay></video>
 			<div className="title ">
 				{firstHalf}
 				<strong>

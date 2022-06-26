@@ -6,18 +6,38 @@ import { useState, useEffect } from 'react';
 
 export default function Hero() {
 	const [slideIdx, setSlideIdx] = useState(1);
+	const [timeoutId, setTimeoutId] = useState();
 
 	function changeSlide({ target }) {
 		if (target.innerText === 'Next') {
+			clearTimeout(timeoutId);
+			setTimeoutId(null);
 			setSlideIdx((prevSlideIdx) =>
 				prevSlideIdx === slidesData.length ? 1 : prevSlideIdx + 1
 			);
 		} else {
+			clearTimeout(timeoutId);
+			setTimeoutId(null);
 			setSlideIdx((prevSlideIdx) =>
 				prevSlideIdx === 1 ? slidesData.length : prevSlideIdx - 1
 			);
 		}
 	}
+
+	useEffect(() => {
+		if (!timeoutId) {
+			console.log('start');
+			setTimeoutId(
+				setTimeout(() => {
+					setSlideIdx((prevSlideIdx) =>
+						prevSlideIdx === slidesData.length ? 1 : prevSlideIdx + 1
+					);
+					clearTimeout(timeoutId);
+					setTimeoutId(null);
+				}, 7000)
+			);
+		}
+	}, [timeoutId]);
 
 	return (
 		<section className="hero">
