@@ -108,6 +108,10 @@ li:hover .link::after {
 	display: none;
 }
 
+.hamburger > img {
+	padding: 8px;
+}
+
 .hero {
 	height: 100vh;
 	width: 100vw;
@@ -138,6 +142,7 @@ li:hover .link::after {
 .title {
 	font-size: 60px;
 	margin-left: 20px;
+	display: flex;
 }
 
 .title span {
@@ -215,7 +220,7 @@ li:hover .link::after {
 	}
 }
 
-.sliders-container {
+.slides-container {
 	position: absolute;
 	overflow: hidden;
 	width: 100%;
@@ -300,5 +305,51 @@ li:hover .link::after {
 		display: grid;
 		place-items: center;
 		margin-left: auto;
+	}
+
+	.hero {
+		gap: 16px;
+	}
+
+	.hero button {
+		margin-block: auto 75px;
+	}
+
+	.title {
+		margin-left: 0;
+		font-size: 48px;
+		margin-top: 85px;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.slide-text {
+		max-width: 300px;
+		text-align: center;
+		font-size: 16px;
+	}
+
+	.title strong {
+		margin: 0;
+	}
+
+	.circle {
+		margin-top: -50px;
+	}
+
+	.slide-text::after {
+		margin-inline: auto;
+		top: -61px;
+		left: 0;
+		right: 0;
+		height: 5px;
+		width: 80px;
+	}
+}
+
+@media screen and (max-width: 1500px) {
+	.nav {
+		margin-left: 100px;
 	}
 }

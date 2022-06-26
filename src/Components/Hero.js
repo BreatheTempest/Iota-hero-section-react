@@ -47,7 +47,7 @@ export default function Hero() {
 				<img src={circle} alt="" />
 				<img className="chevron" src={chevronLeft} alt="" />
 			</button>
-			<div className="sliders-container">
+			<div className="slides-container">
 				{slidesData.map((slide, index) => {
 					return (
 						<Slide

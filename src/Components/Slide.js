@@ -42,7 +42,7 @@ export default function AnimatedVideo({
 			<div className="line"></div>
 			<div className="slide-content">
 				<div className="title ">
-					{firstHalf}
+					<div className="top-title">{firstHalf}</div>
 					<strong>
 						{secondHalf}
 						<div
