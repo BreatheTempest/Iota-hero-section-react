@@ -1,26 +1,21 @@
 import React from 'react';
-import earthVideo from '../Videos/earth.webm';
-import machineVide from '../Videos/machine.webm';
-import womanVideo from '../Videos/woman.webm';
+import slidesData from '../slidesData';
+
 import Slide from './Slide';
 import { useState, useEffect } from 'react';
 
 export default function Hero() {
-	const [slide, setSlide] = useState(1);
-
-	// useEffect(() => {
-	// 	const timer = setTimeout(
-	// 		setSlide((prevSlide) => (prevSlide === 2 ? 0 : prevSlide + 1)),
-	// 		8000
-	// 	);
-	// 	return () => clearTimeout(timer);
-	// }, []);
+	const [slideIdx, setSlideIdx] = useState(1);
 
 	function changeSlide({ target }) {
 		if (target.innerText === 'Next') {
-			setSlide((prevSlide) => (prevSlide === 3 ? 1 : prevSlide + 1));
+			setSlideIdx((prevSlideIdx) =>
+				prevSlideIdx === slidesData.length ? 1 : prevSlideIdx + 1
+			);
 		} else {
-			setSlide((prevSlide) => (prevSlide === 1 ? 3 : prevSlide - 1));
+			setSlideIdx((prevSlideIdx) =>
+				prevSlideIdx === 1 ? slidesData.length : prevSlideIdx - 1
+			);
 		}
 	}
 
@@ -28,29 +23,20 @@ export default function Hero() {
 		<section className="hero">
 			<button onClick={(e) => changeSlide(e)}>Previous</button>
 			<div className="line"></div>
-			{slide === 1 && (
-				<Slide
-					key={1}
-					video={earthVideo}
-					title="Securing Data"
-					text="IOTA protects the integrity and verifiability of data"
-				/>
-			)}
-			{slide === 2 && (
-				<Slide
-					key={2}
-					video={machineVide}
-					title="Connecting Machines"
-					text="IOTA connects IoT with secure data and value exchange"
-				/>
-			)}
-			{slide === 3 && (
-				<Slide
-					video={womanVideo}
-					title="Empowering People"
-					text="IOTA helps people securely navigate their digital life"
-				/>
-			)}
+			<div className="sliders-container">
+				{slidesData.map((slide, index) => {
+					return (
+						<Slide
+							key={slide.id}
+							video={slide.video}
+							title={slide.title}
+							text={slide.text}
+							activeSlide={slideIdx}
+							index={index}
+						/>
+					);
+				})}
+			</div>
 			<button onClick={(e) => changeSlide(e)}>Next</button>
 		</section>
 	);

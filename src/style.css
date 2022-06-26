@@ -111,9 +111,10 @@ li:hover .link::after {
 	height: 1px;
 	width: 100%;
 	background-color: #8493ad;
+	z-index: -1;
 }
 
-.hero-container > video {
+.slide > video {
 	position: absolute;
 	inset: 0;
 	width: 100%;
@@ -129,7 +130,6 @@ li:hover .link::after {
 
 .title span {
 	font-family: 'Metropolis', sans-serif;
-	animation-name: blur-animation;
 }
 
 .title strong {
@@ -137,16 +137,15 @@ li:hover .link::after {
 	position: relative;
 }
 
-.hero-container > p {
+.slide-text {
 	padding: 22.5px 0;
 	margin-top: 10px;
 	font-size: 18px;
 	width: 315px;
-	animation: text-slide-animation 2s ease-out;
 	position: relative;
 }
 
-.hero-container > p::after {
+.slide-text::after {
 	position: absolute;
 	content: '';
 	top: 0;
@@ -163,9 +162,19 @@ li:hover .link::after {
 	aspect-ratio: 1;
 	border-radius: 50%;
 	background: rgba(0, 224, 202, 0.15);
+}
+
+.title-animation {
+	animation-name: blur-animation;
+}
+
+.circle-animation {
 	animation: circle-animation 5s ease-out;
 }
 
+.text-animation {
+	animation: text-slide-animation 2s ease-out;
+}
 @keyframes blur-animation {
 	from {
 		filter: blur(400px);
@@ -195,5 +204,42 @@ li:hover .link::after {
 
 	to {
 		opacity: 1;
+	}
+}
+.sliders-container {
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	z-index: -2;
+}
+
+.slide {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transform: translateX(10vw);
+	transition: opacity ease-in-out 0.4s, transform ease-in-out 0.4s;
+}
+
+.active {
+	animation: slide-animation 2s ease-out;
+	opacity: 1;
+}
+
+@keyframes slide-animation {
+	from {
+		transform: translate(15vw);
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+		transform: translate(0);
 	}
 }
