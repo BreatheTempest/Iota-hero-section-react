@@ -26,6 +26,13 @@ export default function Hero() {
 	}
 
 	useEffect(() => {
+		console.log('hello');
+		setTimeout(() => {
+			console.log('timeout');
+		}, 2000);
+	}, []);
+
+	useEffect(() => {
 		if (!timeoutId) {
 			setTimeoutId(
 				setTimeout(() => {

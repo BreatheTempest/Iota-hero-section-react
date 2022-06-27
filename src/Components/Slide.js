@@ -69,6 +69,9 @@ export default function AnimatedVideo({
 						></div>
 					</strong>
 				</div>
+				<div
+					className={`green-line ${isActive ? 'text-animation' : 'fade-out'}`}
+				></div>
 				<p className={`slide-text ${isActive ? 'text-animation' : 'fade-out'}`}>
 					{text}
 				</p>
