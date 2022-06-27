@@ -278,20 +278,18 @@ li:hover::after {
 
 .hero button {
 	cursor: pointer;
-	background: none;
+	background: #181e32;
 	border: none;
 	position: relative;
 	width: 48px;
-	aspect-ratio: 1;
+	height: 48px;
+	border-radius: 50%;
 	display: grid;
 	place-items: center;
 }
 
-.hero button > img {
-	position: absolute;
-}
-
 .chevron {
+	position: absolute;
 	width: 30px;
 	height: 30px;
 }
